@@ -6,7 +6,4 @@ lib
 build
 dist
 example/src/**/*.js
-src/*.js
-src/*ngfactory.ts
-src/*.json
 *.tgz

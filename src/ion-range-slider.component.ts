@@ -46,6 +46,7 @@ export class IonRangeSliderComponent implements OnChanges{
     @Input() private decorate_both: any;
     @Input() private values_separator: any;
     @Input() private input_values_separator: any;
+    @Input() private invert: boolean;
 
     @Input() private prettify: Function;
 
@@ -134,6 +135,7 @@ export class IonRangeSliderComponent implements OnChanges{
             decorate_both: this.toBoolean(that.decorate_both),
             values_separator: that.values_separator,
             input_values_separator: that.input_values_separator,
+            invert: this.toBoolean(that.invert),
 
             prettify: that.prettify,
 
@@ -171,6 +173,7 @@ export class IonRangeSliderComponent implements OnChanges{
         this.to = data.to;
         this.to_percent = data.to_percent;
         this.to_value = data.to_value;
+        this.invert = data.invert;
     }
 
     private buildCallback(): IonRangeSliderCallback {
@@ -183,6 +186,8 @@ export class IonRangeSliderComponent implements OnChanges{
         callback.to = this.to;
         callback.to_percent = this.to_percent;
         callback.to_value = this.to_value;
+        callback.invert = this.invert;
+        
         return callback;
     }
 }
@@ -196,4 +201,5 @@ export class IonRangeSliderCallback {
         to: number;             // TO value (right handle in double type)
         to_percent: number;     // TO value in percents
         to_value: number;       // TO index in values array (if used)
+        invert: boolean;       // Invert (if used)
 }
